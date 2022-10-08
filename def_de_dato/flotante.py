@@ -4,6 +4,7 @@ def flotante(estado, caracter):
         Regresa estado (>=7) vamos bien
         Regresa estado = 15 -> acepto lexema
     """
+    estado_inicial = estado
     if estado == 7:
         if caracter == "f": estado = 8
         else: return -1, False
@@ -30,4 +31,5 @@ def flotante(estado, caracter):
         else: return -1, False
     if estado == 15:
         print("Flotante")
+    
     return estado, False
