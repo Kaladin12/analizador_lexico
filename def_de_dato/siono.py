@@ -6,20 +6,20 @@ def siono(estado, caracter):
     """
     if estado == 16:
         if caracter == "s": estado = 17
-        else: return -1, False
+        else: return -1, False, None
     elif estado == 17:
         if caracter == "i": estado = 18
-        else: return -1, False
+        else: return -1, False, None
     elif estado == 18:
         if caracter == "o": estado = 19
-        else: return -1, False
+        else: return -1, False, None
     elif estado == 19:
         if caracter == "n": estado = 20
-        else: return -1, False
+        else: return -1, False, None
     elif estado == 20:
         if caracter == "o": estado = 21
-        else: return -1, False
+        else: return -1, False, None
     if estado == 21:
-        print("Siono")
-    return estado, False
+        return estado, False, "SIONO"
+    return estado, False, None
     
