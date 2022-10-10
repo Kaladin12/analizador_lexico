@@ -4,14 +4,12 @@ from fallo import fallo
 
 recupera = False
 encontro_lexema = False
-cadena = 'enterof 5.2 3 verdadero nulo flotantee cadena5 falso siono nulo hugyefjne2?'
+cadena = '   != verdadero    nulo    <= ==    cas    flotantee cadena5  falso siono nulo hugyefjne2?'
 super_cadena_original = cadena
 estado = 209
 inicio = 209
 final = 0
 inicio_subcadena = 0
-
-
 
 def buscar_lexema_en_diagrama(estado, caracter):
     global inicio_subcadena, encontro_lexema , final
@@ -20,16 +18,22 @@ def buscar_lexema_en_diagrama(estado, caracter):
     if not regresa: final += 1
     else: final = final -1 if caracter != " " else final # no tiene sentido quitar siempre un caracter
     #print(final)
-    if estado == diagramas[inicio][1]: # Si el estado esta en el estado de aceptacion correspondiente al diagrama
+    aceptacion = diagramas[inicio][1]
+    if ((isinstance(aceptacion, tuple) and estado in aceptacion) 
+            or 
+            estado == diagramas[inicio][1]): # Si el estado esta en el estado de aceptacion correspondiente al diagrama
         s = super_cadena_original[inicio_subcadena:final]
         if inicio == 209:
             temp_tok = check_if_id_is_reserved_(s)
             if temp_tok!=None:  tok = temp_tok
         encontro_lexema = True 
+        if super_cadena_original[inicio_subcadena:inicio_subcadena+1] == " ":
+            inicio_subcadena +=1
         if regresa:
             print(tok, super_cadena_original[inicio_subcadena:final+1])
         else:
             print(tok, super_cadena_original[inicio_subcadena:final])
+        
         inicio_subcadena = final+1 # Funcion de "aceptar", mover el apuntador de inicio uno a la derecha del de busqueda 
         
     return estado, regresa # Este valor unicamente puede ser un estado dentro del diagrama [no de aceptacion] o -1
@@ -48,15 +52,28 @@ def cosa(cadena, estado):
         estado, _ = (buscar_lexema_en_diagrama(estado, caracter)) # Esta funcion se mueve a traves de un diagrama (Ej: entero - aceptacion: 6)
     
         #print('despues: ', estado, encontro_lexema)
-        if estado in (-1, diagramas[inicio][1]) or len(cadena)==0: break
+        aceptacion = diagramas[inicio][1]
         
-
+        if ((isinstance(aceptacion, tuple) and estado in aceptacion) or
+            estado in (-1, diagramas[inicio][1]) or len(cadena)==0): 
+            if caracter == " "  and not encontro_lexema: 
+                inicio_subcadena -=1
+            break
+        
     if not encontro_lexema:
-        if len(cadena_original)> 0 and cadena_original[0]==" ":
+        while len(cadena_original)>0:
+            if not cadena_original[0]==" ":
+                break
             encontro_lexema = True #bandera para comenzar en primer diagrama
-            return cadena_original[1:]
+            cadena_original = cadena_original[1:]
+            inicio_subcadena +=1
         return cadena_original
-    return cadena[1:] if len(cadena)>0 and cadena[0] == " " else cadena
+    while len(cadena)>0:
+        if not cadena[0]==" ":
+            break
+        cadena = cadena[1:]
+        inicio_subcadena +=1
+    return cadena
 
 while len(cadena)!=0:
     cadena = cosa(cadena, estado)
