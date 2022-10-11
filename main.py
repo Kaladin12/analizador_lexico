@@ -4,7 +4,8 @@ from fallo import fallo
 
 recupera = False
 encontro_lexema = False
-cadena = '  cadena cadena542   != verdadero    nulo    <= ==    cas    flotante e  < cadena5  falso siono nulo hugyefjne2?'
+# '  cadena cadena542   != verdadero    nulo    <= ==    cas    flotante e  < cadena5  falso siono nulo hugyefjne2?'
+cadena = 'tomacar'
 super_cadena_original = cadena
 estado = 209
 inicio = 209
