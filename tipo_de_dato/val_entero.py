@@ -6,11 +6,11 @@ def val_entero(estado, caracter):
     """
     if estado == 39:
         if caracter.isnumeric() : estado = 40
-        else: return -1
+        else: return -1, False, None
     elif estado == 40:
         if caracter.isnumeric(): estado = 40
         else: estado = 41
     if estado == 41:
-        print("Entero")
-    return estado
+        return estado, True, "VAL_ENT"
+    return estado, False, None
     

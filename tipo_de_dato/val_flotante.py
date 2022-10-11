@@ -5,18 +5,19 @@ def val_flotante(estado, caracter):
         Regresa estado = 26 -> acepto lexema
     """
     if estado == 34:
-        if caracter.isNumeric(): estado = 35
-        else: return -1
+        if caracter.isnumeric(): estado = 35
+        else: return -1, False, None
     elif estado == 35:
-        if caracter == "u": estado = 36
-        else: return -1
+        if caracter.isnumeric(): estado = 35
+        elif caracter == ".": estado = 36
+        else: return -1, False, None
     elif estado == 36:
-        if caracter == "l": estado = 25
-        else: return -1
+        if caracter.isnumeric(): estado = 37
+        else: return -1, False, None
     elif estado == 37:
-        if caracter == "o": estado = 26
-        else: return -1
+        if caracter.isnumeric(): estado = 37
+        else: estado = 38
     if estado == 38:
-        print("TipoDato_Flotante")
-    return estado
+        return estado, True, "VAL_FLOT"
+    return estado, False, None
     
