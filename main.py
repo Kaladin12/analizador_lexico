@@ -5,7 +5,7 @@ from fallo import fallo
 recupera = False
 encontro_lexema = False
 
-cadena = 'caso &50.2569 predeterminado interruptor siw si sin sino sinowe -5  "tt4b"interruptor  &| "" cada cadaw cadena cadena542 (1245 e == 4565.2 _ } mientras-haz mientras-hazer'#  != verdadero    nulo    <= ==    cas    flotante e  < cadena5  falso siono nulo hugyefjne2?'
+cadena = 'caso &50.2569 predeterminado interruptor siw si sin sino sinowe -5  "tt4b"interruptor  &| "" cada cadaw cadena cadena542 (1245 e == 4565.2 _ } mientras-haz mientras-hazer regresar regresar2'#  != verdadero    nulo    <= ==    cas    flotante e  < cadena5  falso siono nulo hugyefjne2?'
 # '  cadena cadena542   != verdadero    nulo    <= ==    cas    flotante e  < cadena5  falso siono nulo hugyefjne2'
 super_cadena_original = cadena
 estado = 209

@@ -9,13 +9,13 @@ def check_if_id_is_reserved_(cadena):
     while ((temp<=33 or 
             temp >=42 and temp<=57 or 
             temp>=87 and temp <=92 or
-            temp>=93 and temp<=143
+            temp>=93 and temp<=152
             ) and len(s_)>0):
         caracter = s_[0]
         s_ = s_[1:]
         temp, _, tok = diagramas[init_][0](temp, caracter)
         if temp == -1:
-            if init_ == 130: break
+            if init_ == 144: break
             init_ = fallo(init_)
             temp = init_
             s_ = cadena + ' '

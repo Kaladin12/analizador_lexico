@@ -18,6 +18,7 @@ from misc.predeterminado import predeterminado
 from misc.caso import caso
 from misc.cada import cada
 from misc.mientras import mientras
+from misc.regresar import regresar
 # inicio: (diagrama, aceptacion)
 
 diagramas = {
@@ -41,5 +42,6 @@ diagramas = {
     120: (caso, 124),
     125: (cada, 129),
     130: (mientras, (139,143)),
+    144: (regresar, 152),
     209: (identificador, 211)
 }
