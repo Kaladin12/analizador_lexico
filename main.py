@@ -4,7 +4,9 @@ from fallo import fallo
 
 recupera = False
 encontro_lexema = False
-cadena = '  cadena cadena542   != verdadero    nulo    <= ==    cas    flotante e  < cadena5  falso siono nulo hugyefjne2?'
+
+cadena = 'caso &50.2569 predeterminado interruptor siw si sin sino sinowe -5  "tt4b"interruptor  &| "" cada cadaw cadena cadena542 (1245 e == 4565.2 _ } mientras-haz mientras-hazer regresar regresar2'#  != verdadero    nulo    <= ==    cas    flotante e  < cadena5  falso siono nulo hugyefjne2?'
+# '  cadena cadena542   != verdadero    nulo    <= ==    cas    flotante e  < cadena5  falso siono nulo hugyefjne2'
 super_cadena_original = cadena
 estado = 209
 inicio = 209
@@ -47,7 +49,7 @@ def cosa(cadena, estado):
             cadena  = cadena [1:]   
         #print('dentro: ',caracter,'|', cadena, estado)
 
-        estado, _ = (buscar_lexema_en_diagrama(estado, caracter)) # Esta funcion se mueve a traves de un diagrama (Ej: entero - aceptacion: 6)
+        estado, reg = (buscar_lexema_en_diagrama(estado, caracter)) # Esta funcion se mueve a traves de un diagrama (Ej: entero - aceptacion: 6)
     
         #print('despues: ', estado, encontro_lexema)
         aceptacion = diagramas[inicio][1]
@@ -71,8 +73,11 @@ def cosa(cadena, estado):
             break
         cadena = cadena[1:]
         inicio_subcadena +=1
+    if len(cadena)==0 and reg:
+        inicio_subcadena -= 1
+        return caracter
     return cadena
-
+cadena = cadena + ' '
 while len(cadena)!=0:
     cadena = cosa(cadena, estado)
     #print(encontro_lexema)

@@ -9,6 +9,7 @@ def val_entero(estado, caracter):
         else: return -1, False, None
     elif estado == 40:
         if caracter.isnumeric(): estado = 40
+        elif caracter.isalpha() or caracter == '.': return -1, False, None
         else: estado = 41
     if estado == 41:
         return estado, True, "VAL_ENT"
