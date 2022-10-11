@@ -1,4 +1,16 @@
 def oprel_(estado, caracter):
+    """
+        En cada return, hay tres parametros:
+            estado:
+                -1 significa error
+                cualquier otro: vamos bien
+            regresa
+                quitamos o no el ultimo caracter leido de la cadena
+            tipo    
+                None: significa que aun no encontramos lexema (y en algun punto error)
+                "": tipo del lexema
+
+    """
     if estado == 72: # case 0 
         if caracter == "=": estado = 73
         elif caracter == ">": estado = 76
@@ -10,7 +22,7 @@ def oprel_(estado, caracter):
         if caracter == "=": estado = 74
         else: estado = 75
     if estado == 74:
-        return estado, True, "OP_IGIG"
+        return estado, False, "OP_IGIG"
     if estado == 75: 
         return estado, True, "OP_ASIG"
     

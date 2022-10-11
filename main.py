@@ -4,7 +4,7 @@ from fallo import fallo
 
 recupera = False
 encontro_lexema = False
-cadena = '   != verdadero    nulo    <= ==    cas    flotantee cadena5  falso siono nulo hugyefjne2?'
+cadena = '  cadena cadena542   != verdadero    nulo    <= ==    cas    flotante e  < cadena5  falso siono nulo hugyefjne2?'
 super_cadena_original = cadena
 estado = 209
 inicio = 209
@@ -27,14 +27,12 @@ def buscar_lexema_en_diagrama(estado, caracter):
             temp_tok = check_if_id_is_reserved_(s)
             if temp_tok!=None:  tok = temp_tok
         encontro_lexema = True 
-        if super_cadena_original[inicio_subcadena:inicio_subcadena+1] == " ":
-            inicio_subcadena +=1
         if regresa:
             print(tok, super_cadena_original[inicio_subcadena:final+1])
         else:
             print(tok, super_cadena_original[inicio_subcadena:final])
-        
-        inicio_subcadena = final+1 # Funcion de "aceptar", mover el apuntador de inicio uno a la derecha del de busqueda 
+
+        inicio_subcadena = final+1 if regresa else final # Funcion de "aceptar", mover el apuntador de inicio uno a la derecha del de busqueda 
         
     return estado, regresa # Este valor unicamente puede ser un estado dentro del diagrama [no de aceptacion] o -1
 
@@ -56,8 +54,8 @@ def cosa(cadena, estado):
         
         if ((isinstance(aceptacion, tuple) and estado in aceptacion) or
             estado in (-1, diagramas[inicio][1]) or len(cadena)==0): 
-            if caracter == " "  and not encontro_lexema: 
-                inicio_subcadena -=1
+            #if caracter == " "  and not encontro_lexema: 
+            #    inicio_subcadena -=1
             break
         
     if not encontro_lexema:
