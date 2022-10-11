@@ -3,7 +3,7 @@ def identificador(estado, caracter):
         if caracter!=" " and caracter.isalpha() or caracter == "_": estado = 210
         else: return -1, False, None
     elif estado == 210:
-        if caracter.isalpha() or caracter.isnumeric() or caracter == "_": estado = 210
+        if caracter.isalpha() or caracter.isnumeric() or  caracter == "-" or caracter == "_": estado = 210
         else: 
             estado = 211
             #print("Identificador", '-'+caracter+'-') 
