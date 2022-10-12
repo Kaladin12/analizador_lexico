@@ -23,6 +23,6 @@ def cadena(estado, caracter):
         if caracter == "a": estado = 33
         else: return -1, False, None
     if estado == 33:
-        return estado, False, "CADENA"
+        return estado, True, "CADENA"
     return estado, False, None
     

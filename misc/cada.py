@@ -17,6 +17,6 @@ def cada(estado, caracter):
         if caracter == "a": estado = 129
         else: return -1, False, None
     if estado == 129:
-        return estado, False, "CADA"
+        return estado, True, "CADA"
     return estado, False, None
     

@@ -18,4 +18,4 @@ def agrupacion(estado, caracter):
         return estado, False, "AGR_OB"
     if estado == 65:
         return estado, False, "AGR_CB"
-    
+    return -1, False, None

@@ -21,4 +21,4 @@ def aritmeticos(estado, caracter):
         return estado, False, "ARI_DIV"
     if estado == 71:
         return estado, False, "ARI_POW"
-    
+    return -1, False, None

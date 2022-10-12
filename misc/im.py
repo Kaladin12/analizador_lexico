@@ -31,7 +31,7 @@ def im(estado, caracter):
         if caracter == "r": estado = 176
         else: return -1, False, None
     if estado == 176:
-        return estado, False, "IMPR"
+        return estado, True, "IMPR"
     elif estado == 177:
         if caracter == "r": estado = 178
         else: return -1, False, None
@@ -45,6 +45,6 @@ def im(estado, caracter):
         if caracter == "r": estado = 181
         else: return -1, False, None
     if estado == 181:
-        return estado, False, "IMPO"
+        return estado, True, "IMPO"
     return estado, False, None
     

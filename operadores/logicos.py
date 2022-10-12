@@ -12,3 +12,4 @@ def logicos(estado, caracter):
         return estado, False, "AND"
     if estado == 86:
         return estado, False, "OR"
+    return -1, False, None
