@@ -1,0 +1,47 @@
+((ID > 5) = 58)
+
+EXPR
+AGR_OP EXPR AGR_CP V 
+( EXPR ) V
+( EXPR )
+( AGR_OP EXPR AGR_CP V  )
+( ( EXPR ) V )
+( ( VALOR V ) V )
+( ( ID V ) V )
+( ( ID OPREL EXPR ) V )
+( ( ID > EXPR ) V )
+( ( ID > VALOR V ) V )
+( ( ID > 5 V ) V )
+( ( ID > 5 ) V )
+( ( ID > 5 ) OPREL EXPR )
+( ( ID > 5 ) => EXPR )
+( ( ID > 5 ) => VALOR V )
+( ( ID > 5 ) => 58 V )
+( ( ID > 5 ) => 58 )
+
+((2 / 1) OR (2 > 1)) AND ID
+
+EXPR
+AGR_OP EXPR AGR_CP V 
+(EXPR ) V
+(AGR_OP EXPR AGR_CP V ) V
+((EXPR ) V ) V
+((VALOR V ) V ) V
+((2 V ) V ) V
+((2 ARI_MD T X ) V ) V
+((2 / T X ) V ) V
+((2 / VALOR U X ) V ) V
+((2 / 1 U X ) V ) V
+((2 / 1 X ) V ) V
+((2 / 1 ) V ) V
+((2 / 1 ) OPLOG T X ) V
+((2 / 1 ) OR T X ) V
+((2 / 1 ) OR AGR_OP EXPR AGR_CP U X ) V
+((2 / 1 ) OR ( EXPR ) U X ) V
+((2 / 1 ) OR ( 2 > 1 ) U X ) V
+((2 / 1 ) OR ( 2 > 1 )) V
+((2 / 1 ) OR ( 2 > 1 )) OPLOG T X
+((2 / 1 ) OR ( 2 > 1 )) OPLOG VALOR U X
+((2 / 1 ) OR ( 2 > 1 )) OPLOG ID U X
+((2 / 1 ) OR ( 2 > 1 )) OPLOG ID
+
