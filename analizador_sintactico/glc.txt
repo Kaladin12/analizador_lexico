@@ -1,0 +1,57 @@
+ASIGN ::= TIPO ID OP_ASIG EXPR EOL 
+ASIGN ::= ID OP_ASIG EXPR EOL 
+TIPO ::= CADENA 
+TIPO ::= ENTERO 
+TIPO ::= FLOTANTE 
+TIPO ::= SIONO
+VALOR ::= ID 
+VALOR ::= VAL_CAD 
+VALOR ::= VAL_SIONO 
+VALOR ::= VAL_ENT 
+VALOR ::= VAL_FLOT
+ARI_PS ::= ARI_PLUS
+ARI_PS ::= ARI_SUBS
+ARI_MD ::= ARI_MULT
+ARI_MD ::= ARI_DIV
+EXPR ::= VALOR V
+EXPR ::= AGR_OP EXPR AGR_CP V
+V ::= ARI_MD T X
+V ::= ARI_PS EXPR
+V ::= ''
+X ::= ARI_PS EXPR
+X ::= ''
+T ::= VALOR U
+T ::= AGR_OP EXPR AGR_CP U
+U ::= ARI_MD T
+U ::= '' 
+
+
+
+(ID + 8) * 7 - (ID /26)
+
+EXPR
+AGR_OP EXPR AGR_CP V
+( EXPR ) V
+( VALOR V ) V
+( ID ARI_PS EXPR ) V
+( ID + VALOR V ) V
+( ID + 8) V
+( ID + 8) ARI_MD T X
+( ID + 8) * T X
+( ID + 8) * VALOR U X
+( ID + 8) * 7 U X
+( ID + 8) * 7 X
+( ID + 8) * 7 ARI_PS EXPR
+( ID + 8) * 7 - AGR_OP EXPR AGR_CP V
+( ID + 8) * 7 - ( EXPR )
+( ID + 8) * 7 - ( VALOR V)
+( ID + 8) * 7 - (ID ARI_MD T X)
+( ID + 8) * 7 - (ID / T)
+( ID + 8) * 7 - (ID / VALOR U)
+( ID + 8) * 7 - (ID / 26)
+
+
+
+
+
+
