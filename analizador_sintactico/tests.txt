@@ -1,6 +1,21 @@
-((ID > 5) = 58)
+((ID > (5)) == (58))
 
+MAIN
 EXPR
+AGR_OP COSAA AGR_CP V 
+( COSAA )
+( AGR_OP COSAA AGR_CP V  )
+( ( COSAA ) V  )
+( ( VALOR V ) OPREL EXPR  )
+( ( ID OPREL EXPR ) OPREL EXPR  )
+( ( ID > AGR_OP COSAA AGR_CP V  ) == EXPR  )
+( ( ID > ( VALOR V )  ) == EXPR  )
+( ( ID > ( 5 )  ) == AGR_OP COSAA AGR_CP V   )
+( ( ID > ( 5 )  ) == ( COSAA ) )
+( ( ID > ( 5 )  ) == ( VALOR V ) )
+( ( ID > ( 5 )  ) == ( 58 ) )
+
+
 AGR_OP EXPR AGR_CP V 
 ( EXPR ) V
 ( EXPR )
@@ -45,3 +60,17 @@ AGR_OP EXPR AGR_CP V
 ((2 / 1 ) OR ( 2 > 1 )) OPLOG ID U X
 ((2 / 1 ) OR ( 2 > 1 )) OPLOG ID
 
+for(int i = 23; i <= id; i = i + 1) {
+    a = 1;
+}
+
+asign
+EXPR
+condicionales
+loops
+funciones_solas
+
+
+
+GLC_expr = LL(1)
+GLC_asig = LL(1)

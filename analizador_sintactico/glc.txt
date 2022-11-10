@@ -50,8 +50,3 @@ AGR_OP EXPR AGR_CP V
 ( ID + 8) * 7 - (ID / VALOR U)
 ( ID + 8) * 7 - (ID / 26)
 
-
-
-
-
-
