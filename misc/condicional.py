@@ -19,8 +19,8 @@ def condicional(estado, caracter):
         else: return -1, False, None
     if estado == 90:
         
-        return estado, False, "COND_IF"
+        return estado, True, "COND_IF"
     
-    if estado == 92: return estado, False, "COND_ELSE" 
+    if estado == 92: return estado, True, "COND_ELSE" 
     return estado, False, None
     

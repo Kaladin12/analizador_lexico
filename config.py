@@ -3,7 +3,15 @@ from def_de_dato.flotante import flotante
 from def_de_dato.siono import siono
 from def_de_dato.nulo import nulo
 from def_de_dato.cadena import cadena
+from misc.comentario import comentario
+from misc.dormir import dormir
+from misc.en import en
 from misc.identificador import identificador
+from misc.im import im
+from misc.longitud import longitud
+from misc.rango import rango
+from misc.romper import romper
+from misc.tomacar import tomacar
 from tipo_de_dato.val_entero import val_entero
 from tipo_de_dato.val_flotante import val_flotante
 from tipo_de_dato.val_siono import val_falso, val_verdadero
@@ -43,5 +51,13 @@ diagramas = {
     125: (cada, 129),
     130: (mientras, (139,143)),
     144: (regresar, 152),
+    153: (tomacar, 160),
+    161: (dormir, 167),
+    168: (im, (176, 181)),
+    182: (rango, 187),
+    188: (romper, 194),
+    195: (longitud, 203),
+    204: (comentario, 205.2),
+    206: (en, 208),
     209: (identificador, 211)
 }

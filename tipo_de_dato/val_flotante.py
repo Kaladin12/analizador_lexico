@@ -19,6 +19,6 @@ def val_flotante(estado, caracter):
         elif caracter.isalpha() or caracter=='.': return -1, False, None
         else: estado = 38
     if estado == 38:
-        return estado, True, "VAL_FLOT"
+        return estado, False, "VAL_FLOT"
     return estado, False, None
     

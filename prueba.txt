@@ -1,0 +1,18 @@
+cadena prueba="esto es un texto" cada ( entero i en (20) ) { imprimir("hola") 
+}
+si prueba != "t"{
+   mientras(e < 9){
+   romper
+}
+}
+si(x=2) {
+dormir( 4 )
+}
+# frjkd \n
+
+cada x{
+ caso (1){
+   si longitud(x)<20{ regresar }
+   interruptor
+}
+}

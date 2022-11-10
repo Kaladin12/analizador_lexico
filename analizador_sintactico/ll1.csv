@@ -1,0 +1,35 @@
+﻿,$,AGR_OP,AGR_CP,COND_IF,COND_ELSE,AGR_OB,AGR_CB,INTERRUPTOR,CASO,ROMPER,PREDETERMINADO,CADA,ID,EOL,MNTRS,HAZ_MNTRS,EN,RANGO,OP_ASIG,CADENA,ENTERO,FLOTANTE,SIONO,VAL_CAD,VAL_SIONO,VAL_ENT,VAL_FLOT,ARI_PLUS,ARI_SUBS,ARI_MULT,ARI_DIV,OP_IGIG,OP_MAY,OP_MEN,OP_MAI,OP_MEI,OP_DIF,AND,OR,SLP,IMPR,LONGITUD
+S,,S ::= MAIN $,,S ::= MAIN $,,,,S ::= MAIN $,,,,S ::= MAIN $,S ::= MAIN $,,S ::= MAIN $,S ::= MAIN $,,,,S ::= MAIN $,S ::= MAIN $,S ::= MAIN $,S ::= MAIN $,S ::= MAIN $,S ::= MAIN $,S ::= MAIN $,S ::= MAIN $,,,,,,,,,,,,,S ::= MAIN $,S ::= MAIN $,S ::= MAIN $
+MAIN,,MAIN ::= EXPR,,MAIN ::= ESTRUCT,,,,MAIN ::= ESTRUCT,,,,MAIN ::= ESTRUCT,MAIN ::= EXPR,,MAIN ::= ESTRUCT,MAIN ::= ESTRUCT,,,,MAIN ::= ASIGN,MAIN ::= ASIGN,MAIN ::= ASIGN,MAIN ::= ASIGN,MAIN ::= EXPR,MAIN ::= EXPR,MAIN ::= EXPR,MAIN ::= EXPR,,,,,,,,,,,,,MAIN ::= ESTRUCT,MAIN ::= ESTRUCT,MAIN ::= ESTRUCT
+EXPR,,EXPR ::= AGR_OP EXPR AGR_CP V,,,,,,,,,,,EXPR ::= VALOR V,,,,,,,,,,,EXPR ::= VALOR V,EXPR ::= VALOR V,EXPR ::= VALOR V,EXPR ::= VALOR V,,,,,,,,,,,,,,,
+V,V ::= ε,,V ::= ε,,,V ::= ε,V ::= ε,,,V ::= ε,,,,V ::= ε,,,,,,,,,,,,,,V ::= ARI_PS EXPR,V ::= ARI_PS EXPR,V ::= ARI_MD T X,V ::= ARI_MD T X,V ::= OPREL EXPR,V ::= OPREL EXPR,V ::= OPREL EXPR,V ::= OPREL EXPR,V ::= OPREL EXPR,V ::= OPREL EXPR,V ::= OPLOG T X,V ::= OPLOG T X,,,
+X,X ::= ε,,X ::= ε,,,X ::= ε,X ::= ε,,,X ::= ε,,,,X ::= ε,,,,,,,,,,,,,,X ::= ARI_PS EXPR,X ::= ARI_PS EXPR,,,X ::= OPREL EXPR,X ::= OPREL EXPR,X ::= OPREL EXPR,X ::= OPREL EXPR,X ::= OPREL EXPR,X ::= OPREL EXPR,,,,,
+T,,T ::= AGR_OP EXPR AGR_CP U,,,,,,,,,,,T ::= VALOR U,,,,,,,,,,,T ::= VALOR U,T ::= VALOR U,T ::= VALOR U,T ::= VALOR U,,,,,,,,,,,,,,,
+U,U ::= ε,,U ::= ε,,,U ::= ε,U ::= ε,,,U ::= ε,,,,U ::= ε,,,,,,,,,,,,,,U ::= ε,U ::= ε,U ::= ARI_MD T,U ::= ARI_MD T,U ::= ε,U ::= ε,U ::= ε,U ::= ε,U ::= ε,U ::= ε,U ::= OPLOG T,U ::= OPLOG T,,,
+ESTRUCT,,,,ESTRUCT ::= COND,,,,ESTRUCT ::= INTER,,,,ESTRUCT ::= LOOP,,,ESTRUCT ::= LOOP,ESTRUCT ::= LOOP,,,,,,,,,,,,,,,,,,,,,,,,ESTRUCT ::= LLAMA_AUX,ESTRUCT ::= LLAMA_AUX,ESTRUCT ::= LLAMA_AUX
+COND,,,,COND ::= COND_IF IF_CONTENT TEMP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+TEMP,TEMP ::= ε,,,,TEMP ::= COND_ELSE CONTENT,,TEMP ::= ε,,,TEMP ::= ε,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+IF_CONTENT,,IF_CONTENT ::= AGR_OP EXPR AGR_CP CONTENT,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+CONTENT,,,,,,CONTENT ::= AGR_OB MAIN AGR_CB,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+INTER,,,,,,,,INTER ::= INTERRUPTOR AGR_OP EXPR AGR_CP AGR_OB CASE_ AGR_CB,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+CASE_,,,,,,,,,CASE_ ::= CASO AGR_OP VALOR AGR_CP AGR_OB MAIN ROMPER AGR_CB CASE_END,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+CASE_END,,,,,,,,,CASE_END ::= CASE_,,CASE_END ::= DEFAULT,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+DEFAULT,,,,,,,,,,,DEFAULT ::= PREDETERMINADO AGR_OB MAIN ROMPER AGR_CB,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+LOOP,,,,,,,,,,,,LOOP ::= LOOP_FOR_ABS,,,LOOP ::= LOOP_WHILE,LOOP ::= LOOP_DO,,,,,,,,,,,,,,,,,,,,,,,,,,
+LOOP_FOR_ABS,,,,,,,,,,,,LOOP_FOR_ABS ::= CADA AGR_OP FORS,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+FORS,,,,,,,,,,,,,,,,,FORS ::= LOOP_PY ID,,,FORS ::= LOOP_FOR,FORS ::= LOOP_FOR,FORS ::= LOOP_FOR,FORS ::= LOOP_FOR,,,,,,,,,,,,,,,,,,,
+LOOP_FOR,,,,,,,,,,,,,,,,,,,,LOOP_FOR ::= ASIGN EOL EXPR EOL EXPR AGR_CP CONTENT,LOOP_FOR ::= ASIGN EOL EXPR EOL EXPR AGR_CP CONTENT,LOOP_FOR ::= ASIGN EOL EXPR EOL EXPR AGR_CP CONTENT,LOOP_FOR ::= ASIGN EOL EXPR EOL EXPR AGR_CP CONTENT,,,,,,,,,,,,,,,,,,,
+LOOP_WHILE,,,,,,,,,,,,,,,LOOP_WHILE ::= MNTRS AGR_OP EXPR CONTENT EOL,,,,,,,,,,,,,,,,,,,,,,,,,,,
+LOOP_DO,,,,,,,,,,,,,,,,LOOP_DO ::= HAZ_MNTRS CONTENT EXPR EOL,,,,,,,,,,,,,,,,,,,,,,,,,,
+LOOP_PY,,,,,,,,,,,,,,,,,LOOP_PY ::= EN RANGO AGR_OP EXPR AGR_CP AGR_CP CONTENT,,,,,,,,,,,,,,,,,,,,,,,,,
+ASIGN,,,,,,,,,,,,,,,,,,,,ASIGN ::= TIPO ID OP_ASIG EXPR EOL,ASIGN ::= TIPO ID OP_ASIG EXPR EOL,ASIGN ::= TIPO ID OP_ASIG EXPR EOL,ASIGN ::= TIPO ID OP_ASIG EXPR EOL,,,,,,,,,,,,,,,,,,,
+TIPO,,,,,,,,,,,,,,,,,,,,TIPO ::= CADENA,TIPO ::= ENTERO,TIPO ::= FLOTANTE,TIPO ::= SIONO,,,,,,,,,,,,,,,,,,,
+VALOR,,,,,,,,,,,,,VALOR ::= ID,,,,,,,,,,,VALOR ::= VAL_CAD,VALOR ::= VAL_SIONO,VALOR ::= VAL_ENT,VALOR ::= VAL_FLOT,,,,,,,,,,,,,,,
+ARI_PS,,,,,,,,,,,,,,,,,,,,,,,,,,,,ARI_PS ::= ARI_PLUS,ARI_PS ::= ARI_SUBS,,,,,,,,,,,,,
+ARI_MD,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ARI_MD ::= ARI_MULT,ARI_MD ::= ARI_DIV,,,,,,,,,,,
+OPREL,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,OPREL ::= OP_IGIG,OPREL ::= OP_MAY,OPREL ::= OP_MEN,OPREL ::= OP_MAI,OPREL ::= OP_MEI,OPREL ::= OP_DIF,,,,,
+OPLOG,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,OPLOG ::= AND,OPLOG ::= OR,,,
+LLAMA_AUX,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,LLAMA_AUX ::= SLEEP,LLAMA_AUX ::= PRINT,LLAMA_AUX ::= LEN
+SLEEP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SLEEP ::= SLP AGR_OP VALOR AGR_CP,,
+PRINT,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,PRINT ::= IMPR AGR_OP EXPR AGR_CP,
+LEN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,LEN ::= LONGITUD AGR_OP VALOR AGR_CP
