@@ -1,7 +1,8 @@
 from GLC import GLC
 from terminales import terminales
 #entrada = "COND_IF AGR_OP VAL_ENT OP_MAY VAL_ENT AGR_CP AGR_OB ENTERO ID OP_ASIG VAL_ENT EOL AGR_CB $"
-entrada = ' ENTERO OP_ASIG ENTERO'
+entrada = "HAZ_MNTRS AGR_OB ENTERO ID OP_ASIG VAL_ENT ARI_PLUS VAL_ENT EOL AGR_CB AGR_OP VAL_ENT OP_MAY VAL_ENT AGR_CP EOL $"
+#entrada = ' ENTERO OP_ASIG ENTERO $'
 def pila(entrada):
     # Split de entrada
     entrada = entrada.split()
