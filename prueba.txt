@@ -10,9 +10,9 @@ dormir( 4 )
 }
 # frjkd \n
 
-cada x{
+cada x{ 
  caso (1){
    si longitud(x)<20{ regresar }
-   interruptor
+   interruptor;
 }
 }

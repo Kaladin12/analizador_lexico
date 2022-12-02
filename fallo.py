@@ -28,7 +28,8 @@ def fallo(inicio = 0):
         72:61,
         61:58,
         58:66, 
-        66:84  
+        66:84,
+        84:212 
     }
 
     if inicio in diagram_switch:

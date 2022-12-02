@@ -1,0 +1,73 @@
+{
+  "MAIN": [
+    ["EXPR", "MORE"],
+    ["ASIGN", "MORE"],
+    ["ESTRUCT", "MORE"]
+  ],
+  "EXPR": [
+    ["VALOR", "NEW_OPER"],
+    ["AGR_OP", "EXPR", "AGR_CP", "NEW_OPER"]
+  ],
+  "NEW_OPER": [
+    ["ARI_MD", "OP_T", "UP_OPER"],
+    ["ARI_PS", "EXPR"],
+    ["OPLOG", "OP_T", "UP_OPER"],
+    ["OPREL", "EXPR"],
+    ["EPSILON"]
+  ],
+  "UP_OPER": [["ARI_PS", "EXPR"], ["OPREL", "EXPR"], ["EPSILON"]],
+  "OP_T": [
+    ["VALOR", "LOW_OPER"],
+    ["AGR_OP", "EXPR", "AGR_CP", "LOW_OPER"]
+  ],
+  "LOW_OPER": [["ARI_MD", "OP_T"], ["OPLOG", "OP_T"], ["EPSILON"]],
+  "ESTRUCT": [["COND"], ["LOOP"], ["INTER"], ["LLAMA_AUX"]],
+  "COND": [["COND_IF", "IF_CONTENT", "TEMP"]],
+  "TEMP": [["EPSILON"], ["COND_ELSE", "CONTENT"]],
+  "IF_CONTENT": [["AGR_OP", "EXPR", "AGR_CP", "CONTENT"]],
+  "CONTENT": [["AGR_OB", "MAIN", "AGR_CB"]],
+  "INTER": [
+    ["INTERRUPTOR", "AGR_OP", "EXPR", "AGR_CP", "AGR_OB", "CASE_", "AGR_CB"]
+  ],
+  "CASE_": [
+    [
+      "CASO",
+      "AGR_OP",
+      "VALOR",
+      "AGR_CP",
+      "AGR_OB",
+      "MAIN",
+      "ROMPER",
+      "AGR_CB",
+      "CASE_END"
+    ]
+  ],
+  "CASE_END": [["CASE_"], ["DEFAULT"]],
+  "DEFAULT": [["PREDETERMINADO", "AGR_OB", "MAIN", "ROMPER", "AGR_CB"]],
+  "LOOP": [["LOOP_FOR_ABS"], ["LOOP_WHILE"], ["LOOP_DO"]],
+  "LOOP_FOR_ABS": [["CADA", "AGR_OP", "FORS"]],
+  "FORS": [["LOOP_PY", "ID"], ["LOOP_FOR"]],
+  "LOOP_FOR": [["ASIGN", "EXPR", "EOL", "ASIGN", "AGR_CP", "CONTENT"]],
+  "LOOP_WHILE": [["MNTRS", "AGR_OP", "EXPR", "CONTENT", "EOL"]],
+  "LOOP_DO": [["HAZ_MNTRS", "CONTENT", "EXPR", "EOL"]],
+  "LOOP_PY": [["EN", "RANGO", "AGR_OP", "EXPR", "AGR_CP", "AGR_CP", "CONTENT"]],
+  "ASIGN": [["TIPO", "ID", "OP_ASIG", "EXPR", "EOL"]],
+  "MORE": [["MAIN"], ["EPSILON"]],
+  "TIPO": [["CADENA"], ["ENTERO"], ["FLOTANTE"], ["SIONO"]],
+  "VALOR": [["ID"], ["VAL_CAD"], ["VAL_SIONO"], ["VAL_ENT"], ["VAL_FLOT"]],
+  "ARI_PS": [["ARI_PLUS"], ["ARI_SUBS"]],
+  "ARI_MD": [["ARI_MULT"], ["ARI_DIV"]],
+  "OPREL": [
+    ["OP_IGIG"],
+    ["OP_MAY"],
+    ["OP_MEN"],
+    ["OP_MAI"],
+    ["OP_MEI"],
+    ["OP_DIF"]
+  ],
+  "OPLOG": [["AND"], ["OR"]],
+  "LLAMA_AUX": [["SLEEP"], ["PRINT"], ["LEN"]],
+  "SLEEP": [["SLP", "AGR_OP", "VALOR", "AGR_CP"]],
+  "PRINT": [["IMPR", "AGR_OP", "EXPR", "AGR_CP"]],
+  "LEN": [["LONGITUD", "AGR_OP", "VALOR", "AGR_CP"]]
+}

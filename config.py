@@ -12,6 +12,7 @@ from misc.longitud import longitud
 from misc.rango import rango
 from misc.romper import romper
 from misc.tomacar import tomacar
+from misc.eol import eol
 from tipo_de_dato.val_entero import val_entero
 from tipo_de_dato.val_flotante import val_flotante
 from tipo_de_dato.val_siono import val_falso, val_verdadero
@@ -59,5 +60,6 @@ diagramas = {
     195: (longitud, 203),
     204: (comentario, 205.2),
     206: (en, 208),
-    209: (identificador, 211)
+    209: (identificador, 211),
+    212: (eol , 213)
 }

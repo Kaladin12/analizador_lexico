@@ -4,6 +4,7 @@ from fallo import fallo
 
 recupera = False
 encontro_lexema = False
+tokens = []
 
 def buscar_lexema_en_diagrama(estado, caracter):
     global inicio_subcadena, encontro_lexema , final
@@ -30,6 +31,9 @@ def buscar_lexema_en_diagrama(estado, caracter):
         else:
             inicio_subcadena = final +1 if caracter == " " else final
         print(tok,s+"|")
+        tokens.append(tok)
+        if caracter == ';':
+            final +=1
         # Funcion de "aceptar", mover el apuntador de inicio uno a la derecha del de busqueda 
     else:
         final  = final+1
@@ -70,7 +74,7 @@ def cosa(cadena, estado):
         if len(cadena)==0: 
             inicio_subcadena -= 1
             return caracter
-        elif caracter!=' ':  
+        elif caracter!=' ' and caracter!=';':  
             return caracter + cadena
     while len(cadena)>0:
         if not cadena[0]==" ":
@@ -96,8 +100,10 @@ for cadena in cadenas:
         #print(encontro_lexema)
         if inicio == None:
             break
+        #print(cadena)
         if not encontro_lexema:
             inicio = fallo(inicio)
+            
             if inicio == None:
                 break
             estado = inicio
@@ -110,3 +116,6 @@ for cadena in cadenas:
             recupera = False
         #print('fuera',inicio_subcadena, final)
         encontro_lexema = False
+print(' '.join(tokens)+' $')
+import analizador_sintactico.main as syntax
+syntax.llamada(' '.join(tokens)+' $')

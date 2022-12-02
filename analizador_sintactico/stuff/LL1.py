@@ -1,7 +1,4 @@
-
-
-
-ntrada = "id*id+id$"
+entrada = "id*id+id$"
 
 # epsilon es  '', error es '-' E -> TQ -> FZ
 GLC = {
